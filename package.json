@@ -1,5 +1,5 @@
 {
-  "name": "netlify-express",
+  "name": "netlify-express-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,13 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/owenconti/netlify-express.git"
+    "url": "git+https://github.com/coltonro/FeederForecasterServer.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/owenconti/netlify-express/issues"
-  },
-  "homepage": "https://github.com/owenconti/netlify-express#readme"
+  "license": "ISC"
 }
