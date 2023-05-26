@@ -1,5 +1,6 @@
 const express = require("express");
 const serverless = require("serverless-http");
+const cors = require("cors");
 
 const app = express();
 const router = express.Router();
@@ -423,7 +424,7 @@ const staticData = {
 }
 
 router.get("/", (req, res) => {
-  res.status(200);
+  res.json({"status:": "200!"});
 });
 
 router.post("/cityForecast", (req, res) => {
