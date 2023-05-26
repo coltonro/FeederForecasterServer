@@ -4,6 +4,10 @@ const serverless = require("serverless-http");
 const app = express();
 const router = express.Router();
 
+app.use(cors({
+  origin: 'https://feederforecaster.netlify.app/'
+}));
+
 const staticData = {
   "weather": {
       "queryCost": 1,
@@ -419,9 +423,7 @@ const staticData = {
 }
 
 router.get("/", (req, res) => {
-  res.json({
-    forecast: "birds incoming!"
-  });
+  res.status(200);
 });
 
 router.post("/cityForecast", (req, res) => {
