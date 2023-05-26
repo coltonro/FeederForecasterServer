@@ -6,7 +6,7 @@ const app = express();
 const router = express.Router();
 
 app.use(cors({
-  origin: 'https://feederforecaster.netlify.app/'
+  origin: 'https://feederforecaster.netlify.app'
 }));
 
 const staticData = {
