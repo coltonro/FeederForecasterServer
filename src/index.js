@@ -7,13 +7,15 @@ const foodController = require('./api/foodController');
 
 const app = express();
 const router = express.Router();
-//const PORT = 8080;
 
 app.use(cors({
-  origin: ['https://feederforecaster.netlify.app', 'http://localhost:9000']
+  origin: ['https://feederforecaster.netlify.app', 'http://localhost:9000', 'http://localhost:5173']
 }));
 
+app.use(express.static(process.cwd()+"/client/dist"));
+
 router.get("/", (req, res) => {
+    console.log('get response sent');
   res.json({'status:': '200'});
 });
 
