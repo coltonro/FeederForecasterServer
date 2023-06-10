@@ -15,6 +15,7 @@ app.use(cors({
 }));
 
 app.use(express.static(process.cwd()+"/client/dist"));
+app.use(express.json());
 
 router.get("/", (req, res) => {
     console.log('get response sent');

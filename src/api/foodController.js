@@ -102,7 +102,6 @@ foodController.foods = async (req, res, next) => {
     // }
 
     try {
-        console.log('foodController res.season: ', res.season)
         const season = res.season; // defined in dateController.js
         const recommendBySeason = () => {
             if (season === "Winter") return [suet, sunflower, peanuts, jelly]

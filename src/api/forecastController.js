@@ -19,7 +19,6 @@ forecastController.forecast = async (req, res, next) => {
 
   const predictFeederActivity = (tempmax, cloudcover, windspeed, precipprob) => {
     // set sky as clear, partly cloudy, or cloudy
-    // console.log('windspeed: ', windspeed)
     const sky = cloudcover < 20 ? 'sunny' : cloudcover < 80 ? 'partly cloudy' : 'cloudy';
     const wind = windspeed < 10 ? 'low' : windspeed <= 14 ? 'light' : 'windy';
 
