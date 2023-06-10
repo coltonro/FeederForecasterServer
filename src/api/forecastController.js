@@ -1,8 +1,8 @@
 const forecastString = require('./forecastStrings')
 
-const logicController = {}
+const forecastController = {}
 
-logicController.forecast = async (req, res, next) => {
+forecastController.forecast = async (req, res, next) => {
   // important values: temp, cloud cover, chance precip., month
   // helpful wind direct chart: 
   // https://www.researchgate.net/figure/Wind-Direction-and-Degree-Values_fig16_264876359
@@ -19,7 +19,6 @@ logicController.forecast = async (req, res, next) => {
 
   const predictFeederActivity = (tempmax, cloudcover, windspeed, precipprob) => {
     // set sky as clear, partly cloudy, or cloudy
-    // console.log('windspeed: ', windspeed)
     const sky = cloudcover < 20 ? 'sunny' : cloudcover < 80 ? 'partly cloudy' : 'cloudy';
     const wind = windspeed < 10 ? 'low' : windspeed <= 14 ? 'light' : 'windy';
 
@@ -111,10 +110,10 @@ logicController.forecast = async (req, res, next) => {
     res.locals.forecast = predictionValues;
 
   } catch (err) {
-    console.error("Error in logicController.forecast: ", err.message);
+    console.error("Error in forecastController.forecast: ", err.message);
     next(err);
   }
   next()
 }
 
-module.exports = logicController;
+module.exports = forecastController;

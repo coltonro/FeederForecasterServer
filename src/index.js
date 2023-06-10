@@ -2,8 +2,10 @@ const express = require('express');
 const serverless = require('serverless-http');
 const cors = require('cors');
 const apiController = require('./api/apiController');
-const logicController = require('./api/logicController');
+const forecastController = require('./api/forecastController');
 const foodController = require('./api/foodController');
+const birdsController = require('./api/birdsController');
+const dateController = require('./api/dateController');
 
 const app = express();
 const router = express.Router();
@@ -13,13 +15,14 @@ app.use(cors({
 }));
 
 app.use(express.static(process.cwd()+"/client/dist"));
+app.use(express.json());
 
 router.get("/", (req, res) => {
     console.log('get response sent');
   res.json({'status:': '200'});
 });
 
-router.post('/cityForecast', apiController.apiData, logicController.forecast, foodController.foods, (req, res) => {
+router.post('/cityForecast', apiController.apiData, dateController.date, forecastController.forecast, foodController.foods, birdsController.birds, (req, res) => {
     res.json(res.locals);
   });
 
