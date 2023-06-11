@@ -14,7 +14,7 @@ app.use(cors({
   origin: ['https://feederforecaster.netlify.app', 'http://localhost:9000', 'http://localhost:5173']
 }));
 
-app.use(express.static(process.cwd()+"/client/dist"));
+app.use(express.static(process.cwd()+"/dist"));
 app.use(express.json());
 
 router.get("/", (req, res) => {
