@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/netlify-lambda serve src start",
-    "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build src"
+    "build": "NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/netlify-lambda build src"
   },
   "repository": {
     "type": "git",
