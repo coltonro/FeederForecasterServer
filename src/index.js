@@ -4,7 +4,6 @@ const cors = require('cors');
 const apiController = require('./api/apiController');
 const forecastController = require('./api/forecastController');
 const foodController = require('./api/foodController');
-const birdsController = require('./api/birdsController');
 const dateController = require('./api/dateController');
 
 const app = express();
@@ -22,7 +21,7 @@ router.get("/", (req, res) => {
   res.json({'status:': '200'});
 });
 
-router.post('/cityForecast', apiController.apiData, dateController.date, forecastController.forecast, foodController.foods, birdsController.birds, (req, res) => {
+router.post('/cityForecast', apiController.apiData, dateController.date, forecastController.forecast, foodController.foods, (req, res) => {
     res.json(res.locals);
   });
 
