@@ -3,19 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "netlify-lambda": "^1.4.3",
-    "serverless-http": "^1.9.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coltonro/FeederForecasterServer.git"
   },
   "scripts": {
     "start": "NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider ./node_modules/.bin/netlify-lambda serve src start",
     "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build src"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/coltonro/FeederForecasterServer.git"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "netlify-lambda": "^1.4.3",
+    "serverless-http": "^1.9.1"
   },
   "keywords": [],
   "author": "",
