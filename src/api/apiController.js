@@ -20,6 +20,10 @@ apiController.apiData = async (req, res, next) => {
   }
   catch (err) {
     console.error(`Error in apiController.js: `, err.message);
+    return {
+      statusCode: 500,
+      body: JSON.stringify(err),
+    };
   }
 
   next()
