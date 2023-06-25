@@ -78,28 +78,6 @@ const millet = {
 const foodController = {}
 
 foodController.foods = async (req, res, next) => {
-    // determine the current season, so prediction output can be more specific
-    // const determineSeason = () => {
-    //     const today = new Date().toISOString().split('T')[0];
-    //     const todayAsDate = new Date(today)
-    //     const year = new Date().getFullYear();
-
-    //     // seasons approximated by general Texas temps and bird activity, not actual equinox and solstice timings.
-    //     const spring = new Date(`${year}-04-01`);
-    //     const summer = new Date(`${year}-05-16`);
-    //     const fall = new Date(`${year}-09-15`);
-    //     const winter = new Date(`${year}-11-15`);
-
-    //     if (todayAsDate >= spring && todayAsDate < summer) {
-    //         return "Spring"
-    //     } else if (todayAsDate >= summer && todayAsDate < fall) {
-    //         return "Summer"
-    //     } else if (todayAsDate >= fall && todayAsDate < winter) {
-    //         return "Fall"
-    //     } else {
-    //         return "Winter"
-    //     }
-    // }
 
     try {
         const season = res.season; // defined in dateController.js
@@ -113,6 +91,7 @@ foodController.foods = async (req, res, next) => {
         res.locals.foods = recommendBySeason();
     } catch (err) {
         console.error(`Error in seasonalFoods.ts: `, err.message);
+        res.error = err;
         next(err);
     }
 
