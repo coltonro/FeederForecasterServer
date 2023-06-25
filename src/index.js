@@ -13,17 +13,26 @@ app.use(cors({
   origin: ['https://feederforecaster.netlify.app', 'http://localhost:9000', 'http://localhost:5173']
 }));
 
-app.use(express.static(process.cwd()+"/dist"));
+app.use(express.static(process.cwd() + "/dist"));
 app.use(express.json());
 
 router.get("/", (req, res) => {
-    console.log('get response sent');
-  res.json({'status:': '200'});
+  console.log('get response sent');
+  res.json({ 'status:': '200' });
 });
 
 router.post('/cityForecast', apiController.apiData, dateController.date, forecastController.forecast, foodController.foods, (req, res) => {
-    res.json(res.locals);
-  });
+  res.json(res.locals);
+});
+
+app.use('*', (req, res) => {
+  res.status(404).send('404 Not Found');
+});
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).send({'Internal Server Error': err});
+});
 
 app.use(`/.netlify/functions/index`, router);
 
