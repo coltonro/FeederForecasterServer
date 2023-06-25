@@ -11,19 +11,16 @@ apiController.apiData = async (req, res, next) => {
       // const weather = staticData;
 
       // only include daylight hours (between 07:00 and 19:00)
-      weather.days.map((day) => {
+      const filteredHours = weather.days.map((day) => {
         return day.hours = day.hours.filter((hour) => {
           return "07:00:00" <= hour.datetime && hour.datetime <= "19:00:00";
         })
       });
-      res.locals.weather = weather;
+      res.locals.weather = filteredHours;
   }
   catch (err) {
     console.error(`Error in apiController.js: `, err.message);
-    return {
-      statusCode: 500,
-      body: JSON.stringify(err),
-    };
+    res.error = err;
   }
 
   next()
