@@ -113,7 +113,7 @@ forecastController.forecast = async (req, res, next) => {
 
   } catch (err) {
     console.error("Error in forecastController.forecast: ", err.message);
-    res.error = err;
+    res.error = {"error in forecastController": err};
     next(err);
   }
   next()
