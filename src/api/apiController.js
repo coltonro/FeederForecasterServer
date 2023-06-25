@@ -11,16 +11,15 @@ apiController.apiData = async (req, res, next) => {
       // const weather = staticData;
 
       // only include daylight hours (between 07:00 and 19:00)
-      const filteredHours = weather.days.map((day) => {
-        return day.hours = day.hours.filter((hour) => {
-          return "07:00:00" <= hour.datetime && hour.datetime <= "19:00:00";
-        })
-      });
-      res.locals.weather = filteredHours;
+      // const filteredHours = await weather.days.map((day) => {
+      //   return day.hours = day.hours.filter((hour) => {
+      //     return "07:00:00" <= hour.datetime && hour.datetime <= "19:00:00";
+      //   })
+      // });
+      res.locals.weather = weather;
   }
   catch (err) {
     console.error(`Error in apiController.js: `, err.message);
-    res.error = err;
   }
 
   next()

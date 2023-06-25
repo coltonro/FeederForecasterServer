@@ -101,6 +101,7 @@ forecastController.forecast = async (req, res, next) => {
 
   try {
     const weatherForecast = res.locals.weather.days
+    console.log('**res.locals.weather: ', res.locals.weather)
     const predictionValues = weatherForecast.map((day) => {
       const tempmax = day.tempmax;
       const cloudcover = day.cloudcover;
