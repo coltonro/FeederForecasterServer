@@ -2,6 +2,7 @@ const express = require('express');
 const serverless = require('serverless-http');
 const cors = require('cors');
 const apiController = require('./api/apiController');
+const dateController = require('./api/dateController')
 const forecastController = require('./api/forecastController');
 const foodController = require('./api/foodController');
 
@@ -20,7 +21,7 @@ router.get("/", (req, res) => {
   res.send("Server is live!");
 });
 
-router.post('/cityForecast', apiController.apiData, forecastController.forecast, foodController.foods, (req, res) => {
+router.post('/cityForecast', apiController.apiData, dateController.date, forecastController.forecast, foodController.foods, (req, res) => {
   res.json(res.locals);
 });
 
