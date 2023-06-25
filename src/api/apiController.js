@@ -1,6 +1,3 @@
-// const fetch = require('node-fetch');
-const staticData = require('./staticData');
-
 const apiController = {}
 
 apiController.apiData = async (req, res, next) => {
@@ -13,7 +10,7 @@ apiController.apiData = async (req, res, next) => {
       const weather = await apiData.json();
       // const weather = staticData;
 
-      // only includes hourly forecast for daylight hours (between 07:00 and 19:00)
+      // only include daylight hours (between 07:00 and 19:00)
       weather.days.map((day) => {
         return day.hours = day.hours.filter((hour) => {
           return "07:00:00" <= hour.datetime && hour.datetime <= "19:00:00";
