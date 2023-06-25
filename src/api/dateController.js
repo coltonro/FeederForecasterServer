@@ -32,6 +32,8 @@ dateController.date = async (req, res, next) => {
         res.month = month;
     } catch (err) {
         console.log('error in dateController: ', err);
+        res.error = {"error in dateController": err};
+        next(err);
     }
     next();
 }

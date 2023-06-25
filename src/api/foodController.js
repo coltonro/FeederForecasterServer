@@ -91,7 +91,7 @@ foodController.foods = async (req, res, next) => {
         res.locals.foods = recommendBySeason();
     } catch (err) {
         console.error(`Error in seasonalFoods.ts: `, err.message);
-        res.error = err;
+        res.error = {"error in foodController": err};
         next(err);
     }
 
