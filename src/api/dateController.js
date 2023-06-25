@@ -28,13 +28,11 @@ dateController.date = async (req, res, next) => {
     const month = monthNames[new Date().getMonth()];
 
     try {
-        console.log('determineSeason(): ', determineSeason());
         res.season = determineSeason();
         res.month = month;
     } catch (err) {
         console.log('error in dateController: ', err);
     }
-    console.log('res.season, res.month: ', res.season, res.month);
     next();
 }
 
